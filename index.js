@@ -28,6 +28,17 @@ if (argv._[0] == "gen") {
 	if (argv._[1] == "component") {
 		console.log( argv.stack)
 
+	} else if (argv._[1] == "pages") {
+		console.log( argv._[1])
+
+	}
+	else if (argv._[1] == "services") {
+		console.log( argv._[1])
+
+	}
+	else if (argv._[1] == "slices") {
+		console.log( argv._[1])
+
 	}
 
 	// files.createFile()
