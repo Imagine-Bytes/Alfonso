@@ -27,6 +27,13 @@ if (!files.directoryExists('.alf')) {
 if (argv._[0] == "gen") {
 	if (argv._[1] == "component") {
 		console.log( argv.stack)
+		let fileName = argv._[argv._.length-1]
+		let fileNameLength = fileName.length-1
+		if (!fileName.substr(fileNameLength)) {	
+				fileName.
+			}
+				files.createFile(fileName)
+				files.writeFile(fileName, "test")
 
 	} else if (argv._[1] == "pages") {
 		console.log( argv._[1])
