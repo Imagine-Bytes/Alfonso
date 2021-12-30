@@ -1,9 +1,10 @@
 {
   "name": "alfonso",
   "version": "1.0.0",
-  "description": "A CLI that helps generate boilerplate code in component based libraries and frameworks",
+  "description": "A CLI that helps frontend developers generate boilerplate code for component based libraries and frameworks",
   "main": "index.js",
   "scripts": {
+    "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "bin": {
@@ -12,16 +13,27 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Imagine-Bytes/Alfonso.git"
-  }, 
+  },
   "keywords": [
-      "generator",
-      "CLI",
-      "boilerplate"
+    "generator",
+    "CLI",
+    "boilerplate"
   ],
   "author": "Imagine",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/Imagine-Bytes/Alfonso/issues"
   },
-  "homepage": "https://github.com/Imagine-Bytes/Alfonso#readme"
+  "homepage": "https://github.com/Imagine-Bytes/Alfonso#readme",
+  "dependencies": {
+    "chalk": "^4.1.0",
+    "clear": "^0.1.0",
+    "clui": "^0.3.6",
+    "configstore": "^6.0.0",
+    "figlet": "^1.5.2",
+    "inquirer": "^8.2.0",
+    "lodash": "^4.17.21",
+    "minimist": "^1.2.5",
+    "touch": "^3.1.0"
+  }
 }
