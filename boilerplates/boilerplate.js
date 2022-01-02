@@ -13,7 +13,7 @@ class Plate {
 				"styledComponent",
 				"less",
 				"tailwind",
-			
+			]
 			this.rendered = `<div>Hi from Alfonso</div>`
 			this.dependencies = [
 			"import React from 'react';",

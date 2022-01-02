@@ -2,6 +2,10 @@
 
 ## A CLI that helps frontend developers generate boilerplate code for component based libraries and frameworks
 
+Current Usage
+
+alf react -g component "Component"
+
 ## TODO
 
 ### Major
