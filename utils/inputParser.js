@@ -3,7 +3,7 @@ const files = require('./files');
 const argv = require('minimist')(process.argv.slice(2));
 
 module.exports = {
-  formatFileName: () => {
+  formatName: () => {
         // console.log( argv.stack)
     let fileName = argv._[argv._.length-1]
     // let fileNameLength = fileName.length-1
@@ -17,6 +17,9 @@ module.exports = {
   getBoilerPlate: () => {
     let plateFiles = []
     if (argv._[0] == "react") {
+      if (argv.g == "component") {
+      return "./boilerplates/boilerplate.js"
+    }
       return "./boilerplates/boilerplate.js"
     }
   }

@@ -26,19 +26,14 @@ if (!files.directoryExists('.alf')) {
   // process.exit();
 }
 console.log(argv)
-	let fileName = inputParser.formatFileName()
-  let output = new Plate
-        output.structure()
-        files.createFile(fileName)
-        files.writeFile(fileName, output.structure())
-
-
-if (argv.g == "component") {
-
-}
+	
 
 const run =  () => {
-  console.log(argv)
+  let name = inputParser.formatName()
+  let output = new Plate
+        output.structure()
+        files.createFile(name)
+        files.writeFile(name, output.structure())
 };
 
 run();

@@ -19,4 +19,7 @@ module.exports = {
   writeFile: (file, details) => {
  		fs.writeFileSync( file, details);
  	}
+  readFile: () => {
+    fs.writeFileSync( file, details);     
+  }
 };
