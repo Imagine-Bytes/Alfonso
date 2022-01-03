@@ -1,6 +1,4 @@
 class Plate {
-	// = (options = {})
-		// let _this = {}
 		constructor (name = "Plate", type = "component", tech = "react", variant = "simple"){
 			this.name = name
 			this.type = type

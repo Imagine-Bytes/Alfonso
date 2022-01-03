@@ -20,6 +20,6 @@ module.exports = {
  		fs.writeFileSync( file, details);
  	}
   readFile: () => {
-    fs.writeFileSync( file, details);     
+    fs.readFileSync( file, "utf8"); 
   }
 };
