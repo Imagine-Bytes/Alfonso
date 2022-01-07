@@ -18,8 +18,11 @@ module.exports = {
 
   writeFile: (file, details) => {
  		fs.writeFileSync( file, details);
- 	}
-  readFile: () => {
+ 	},
+  readFile: (file) => {
     fs.readFileSync( file, "utf8"); 
+  },
+  fileExist: (value) => {
+    fs.existsSync(value)
   }
 };

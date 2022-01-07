@@ -37,4 +37,15 @@ module.exports = {
     ];
     return inquirer.prompt(questions);
   },
+  selectFramework: () => {
+    const questions = [
+      {
+        name: 'framework',
+        type: 'list',
+        message: 'Choose your framework for this project',
+        choices:['React','Vue','Svelte','Angular']
+      },
+    ];
+    return inquirer.prompt(questions);
+  }
 };
