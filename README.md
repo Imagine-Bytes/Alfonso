@@ -10,27 +10,27 @@ alf react -g component "Component"
 
 ### Major
 
-- [ ] Setup project structure
-- [ ] Create input parser
-- [ ] Create file generator
-- [ ] Create boilerplates
+- [x] Setup project structure
+- [x] Create input parser
+- [x] Create file generator
+- [x] Create boilerplates
 
 ### Input Parser
-- [ ] Recognize file names and directories
-- [ ] Convert file names and directories to Pascal Case
+- [x] Recognize file names and directories
+- [x] Convert file names and directories to Pascal Case
 - [ ] Recognize modes
-- [ ] Recognize languages
+- [x] Recognize languages
 - [ ] Recognize flags
 
 ### File Generator
-- [ ] Create generate files function
-- [ ] Create generate folders function
-- [ ] Write check for already existing files or folders
+- [x] Create generate files function
+- [x] Create generate folders function
+- [x] Write check for already existing files or folders
 
 ### Boilerplates
-- [ ] Create boilerplate file system
-- [ ] Create boilerplate file reader
-- [ ] Create React Component Boilerplate
+- [x] Create boilerplate file system
+- [x] Create boilerplate file reader
+- [x] Create React Component Boilerplate
 - [ ] Create React Pages (React Router Based) Boilerplate
 - [ ] Create Svelte Component Boilerplate
 - [ ] Create Svelte Pages Boilerplate
