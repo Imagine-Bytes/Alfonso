@@ -6,10 +6,24 @@ const argv = require("minimist")(process.argv.slice(2));
 const { selectFramework } = require("./utils/input");
 const files = require("./utils/files");
 const react = require("./boilerplates/react");
+const next = require("./boilerplates/next");
+const commands = ["init", "gen", "help or -h"]
 
+if ((argv._[0] === undefined && argv.g === undefined) || (argv._[0] === "help" || argv.h !== undefined)) {
+    console.log(
+    chalk.yellow(figlet.textSync("Alfonso", { horizontalLayout: "full" }))
+  );
+      console.log(
+    chalk.white("COMMANDS:"))
+    commands.forEach(command => {
+      console.log(
+    chalk.yellow(command))
+    })
+  
+}
 
 // when user runs "alf" during initalization (node index during development)
-if (argv._[0] === undefined && argv.g === undefined) {
+if (argv._[0] === "init" && argv.g === undefined) {
   clear();
   console.log(
     chalk.yellow(figlet.textSync("Alfonso", { horizontalLayout: "full" }))
@@ -17,8 +31,8 @@ if (argv._[0] === undefined && argv.g === undefined) {
   const run = async () => {
     const framework = await selectFramework();
     let tech = framework.framework;
-    files.createFile("config.json");
-    files.writeFile("config.json", JSON.stringify(framework));
+    files.createFile("alfConfig.json");
+    files.writeFile("alfConfig.json", JSON.stringify(framework));
     console.log(
       chalk.blue(`${tech} component generator has been setup for your project`)
     );
@@ -31,12 +45,19 @@ if (argv._[0] === undefined && argv.g === undefined) {
   run();
 }
 // when user runs "alf component_name" to create component 
-if (argv._[0] && fs.existsSync("config.json")) {
-  const config = JSON.parse(fs.readFileSync("config.json", "utf8"))
+if (argv._[0] && fs.existsSync("alfConfig.json")) {
+  const config = JSON.parse(fs.readFileSync("alfConfig.json", "utf8"))
   const cName = argv._[0];
   switch (config.framework) {
     case "React":
       react.component(cName);
+      break;
+      case "Next":
+      if (argv.g === "page") {
+        next.page(cName);
+        break
+      }
+      next.component(cName);
       break;
     case "Vue":
       // code block
@@ -49,7 +70,7 @@ if (argv._[0] && fs.existsSync("config.json")) {
   }
 }
 // when usr tries to create component without initializing alfonso 
-if (argv._[0] && !fs.existsSync("config.json")) {
+if (argv._[0] && !fs.existsSync("alfConfig.json")) {
   console.log(chalk.red("ERR") + chalk.blue(" alfonso has not been initialized"))
   console.log(chalk.blue("Run") + chalk.green(" alf ") + chalk.blue("to initialize alfonso"))
 }
