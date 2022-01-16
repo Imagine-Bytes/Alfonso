@@ -13,15 +13,18 @@ module.exports = {
      if (!files.directoryExists(dir)) {
       files.createFolder(dir);
     }
-    if (files.fileExist(`./${dir}/${name}.js`)) {
+    if (!files.directoryExists(`${dir}/${name}`)) {
+      files.createFolder(`${dir}/${name}`);
+    }
+    if (files.fileExist(`./${dir}/${name}/index.js`)) {
       console.log("Component already exists")
       return ""
     } 
 
-    files.createFile(`./${dir}/${name}.js`);
-    files.createFile(`./${dir}/${name}.module.css`);
+    files.createFile(`./${dir}/${name}/index.js`);
+    files.createFile(`./${dir}/${name}/${name}.module.css`);
     const componentData = `
-    import ${name}Styles from "${name}.module.css"
+    import ${name}Styles from "./${name}.module.css"
     const ${name} = () => {
       return (
           {
@@ -42,10 +45,10 @@ module.exports = {
     
     `;
 
-    files.writeFile(`./${dir}/${name}.js`, componentData);
-    if (!files.fileExist(`${dir}/${name}.js`)) {
+    files.writeFile(`./${dir}/${name}/index.js`, componentData);
+    if (files.fileExist(`./${dir}/${name}/${name}.module.css`)) {
       
-      files.writeFile(`./${dir}/${name}.module.css`, stylesData);
+      files.writeFile(`./${dir}/${name}/${name}.module.css`, stylesData);
       console.log(chalk.blue("CSS Module created at ") + chalk.green (` ${dir}/${name}.module.css`))
     } else {
       console.log(chalk.blue("CSS Module ") + chalk.green (` ${dir}/${name}.module.css already exists`))
