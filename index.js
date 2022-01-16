@@ -1,3 +1,5 @@
+#! /usr/bin/env node
+
 const chalk = require("chalk");
 const fs = require("fs");
 const clear = require("clear");
@@ -7,12 +9,18 @@ const { selectFramework } = require("./utils/input");
 const files = require("./utils/files");
 const react = require("./boilerplates/react");
 const next = require("./boilerplates/next");
-const commands = ["init", "gen", "help or -h"]
+const commands = [
+`init\t\tInitialize Alfonse in your Project`, 
+`-g\t\tGenerate a Component, Page (or Service soon)`,
+`help, -h\tShow this help section`
+]
 
 if ((argv._[0] === undefined && argv.g === undefined) || (argv._[0] === "help" || argv.h !== undefined)) {
     console.log(
     chalk.yellow(figlet.textSync("Alfonse...", { horizontalLayout: "full" }))
   );
+    console.log(
+    chalk.hex('#83aaff')("Usage: alf -g component Component"))
       console.log(
     chalk.white("COMMANDS:"))
     commands.forEach(command => {

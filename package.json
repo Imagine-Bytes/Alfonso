@@ -1,5 +1,5 @@
 {
-  "name": "alfonso",
+  "name": "alfonse",
   "version": "1.0.0",
   "description": "A CLI that helps frontend developers generate boilerplate code for component based libraries and frameworks",
   "main": "index.js",
@@ -8,7 +8,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "bin": {
-    "alf": "./index.js"
+    "alf": "index.js"
   },
   "repository": {
     "type": "git",
