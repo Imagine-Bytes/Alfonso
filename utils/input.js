@@ -25,7 +25,7 @@ module.exports = {
         name: 'framework',
         type: 'list',
         message: 'Choose your framework for this project',
-        choices:['React','Vue','Svelte','Angular']
+        choices:['React', 'Next','Vue','Svelte','Angular']
       },
     ];
     return inquirer.prompt(questions);
