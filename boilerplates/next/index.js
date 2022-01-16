@@ -26,13 +26,10 @@ module.exports = {
     const componentData = `
     import ${name}Styles from "./${name}.module.css"
     const ${name} = () => {
-      return (
-          {
-            <div styles={${name}Styles.container}>
+      return <div styles={${name}Styles.container}>
             ${name} Component
             </div>
-          }
-      );
+        
     };
     
     export default ${name};
@@ -82,9 +79,7 @@ module.exports = {
 
 
     const ${name} = () => {
-      return (
-          {
-    <div>
+      return <div>
       <Head>
         <title>First Post</title>
       </Head>
@@ -95,8 +90,7 @@ module.exports = {
         </Link>
       </h2>
     </div>
-          }
-      );
+         
     };
     
     export default ${name};
