@@ -3,23 +3,29 @@ const inputParser = require("../../utils/inputParser");
 const chalk = require("chalk");
 const fs = require('fs');
 
+let successMessage = ``
+
 module.exports = {
   component: (name) => {
     name = name.trim()
     let originalName = name
     name = inputParser.formatName(name)
     const dir = "./components";
-    if (!fs.existsSync(dir)) {
-      fs.mkdirSync(dir);
-    }
+    if (files.fileExist(`${dir}/${name}.js`)) {
+      console.log("Component already exists")
+      return ""
+    } 
+
     files.createFile(`./${dir}/${name}.js`);
     files.createFile(`./${dir}/${name}.module.css`);
     const componentData = `
-    import ${name}Styles from ${name}.module.css
+    import ${name}Styles from "${name}.module.css"
     const ${name} = () => {
       return (
           {
-            <div styles={${name}Styles.container}></div>
+            <div styles={${name}Styles.container}>
+            ${name} Component
+            </div>
           }
       );
     };
@@ -35,8 +41,13 @@ module.exports = {
     `;
 
     files.writeFile(`./${dir}/${name}.js`, componentData);
-    files.writeFile(`./${dir}/${name}.module.css`, stylesData);
-      console.log(chalk.blue("CSS Module created at ") + chalk.green (` ${dir}/${name}.jsx`))
+    if (!files.fileExist(`${dir}/${name}.js`)) {
+      
+      files.writeFile(`./${dir}/${name}.module.css`, stylesData);
+      console.log(chalk.blue("CSS Module created at ") + chalk.green (` ${dir}/${name}.module.css`))
+    } else {
+      console.log(chalk.blue("CSS Module ") + chalk.green (` ${dir}/${name}.module.css already exists`))
+    }
     console.log(chalk.blue(`your`)+ chalk.cyanBright(` ${name} `) + chalk.blue("Component has been created at ") + chalk.green (` ${dir}/${name}.js`))
   },
   page: (name, addons=["none"]) => {
@@ -48,6 +59,10 @@ module.exports = {
     }
     name = inputParser.formatName(name)
     const dir = "./pages";
+      if (files.fileExist(`${dir}/${name}`)) {
+      console.log("Page already exists")
+      return ""
+    } 
     if (!fs.existsSync(dir)) {
       fs.mkdirSync(dir);
     }

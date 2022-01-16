@@ -23,6 +23,6 @@ module.exports = {
     fs.readFileSync( file, "utf8"); 
   },
   fileExist: (value) => {
-    fs.existsSync(value)
+    return fs.existsSync(value)
   }
 };
