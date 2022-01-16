@@ -36,7 +36,7 @@ module.exports = {
     
     `;
   const stylesData = `
-    container {
+    .container {
       background: red;
     }
     
