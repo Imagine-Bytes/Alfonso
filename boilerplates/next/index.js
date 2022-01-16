@@ -12,7 +12,7 @@ module.exports = {
     if (!fs.existsSync(dir)) {
       fs.mkdirSync(dir);
     }
-    files.createFile(`./${dir}/${name}.jsx`);
+    files.createFile(`./${dir}/${name}.js`);
     files.createFile(`./${dir}/${name}.module.css`);
     const componentData = `
     import ${name}Styles from ${name}.module.css
@@ -34,10 +34,10 @@ module.exports = {
     
     `;
 
-    files.writeFile(`./${dir}/${name}.jsx`, componentData);
+    files.writeFile(`./${dir}/${name}.js`, componentData);
     files.writeFile(`./${dir}/${name}.module.css`, stylesData);
       console.log(chalk.blue("CSS Module created at ") + chalk.green (` ${dir}/${name}.jsx`))
-    console.log(chalk.blue(`your`)+ chalk.cyanBright(` ${name} `) + chalk.blue("Component has been created at ") + chalk.green (` ${dir}/${name}.jsx`))
+    console.log(chalk.blue(`your`)+ chalk.cyanBright(` ${name} `) + chalk.blue("Component has been created at ") + chalk.green (` ${dir}/${name}.js`))
   },
   page: (name, addons=["none"]) => {
     const extras = {
@@ -51,7 +51,7 @@ module.exports = {
     if (!fs.existsSync(dir)) {
       fs.mkdirSync(dir);
     }
-    files.createFile(`./${dir}/${name}.jsx`);
+    files.createFile(`./${dir}/${name}.js`);
     const componentData =`
     import Head from 'next/head'
     import Link from 'next/link'
@@ -82,7 +82,7 @@ module.exports = {
     export default ${name};
     
     `;
-    files.writeFile(`./${dir}/${name}.jsx`, componentData);
-    console.log(chalk.blue(`your`)+ chalk.cyanBright(` ${name} `) + chalk.blue("Page has been created at ") + chalk.green (` ./${dir}/${name}.jsx`))
+    files.writeFile(`./${dir}/${name}.js`, componentData);
+    console.log(chalk.blue(`your`)+ chalk.cyanBright(` ${name} `) + chalk.blue("Page has been created at ") + chalk.green (` ${dir}/${name}.js`))
   },
 };

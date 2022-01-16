@@ -72,7 +72,7 @@ if (argv._[0] && fs.existsSync("alfConfig.json")) {
 // when usr tries to create component without initializing alfonso 
 if (argv._[0] && !fs.existsSync("alfConfig.json")) {
   console.log(chalk.red("ERR") + chalk.blue(" alfonso has not been initialized"))
-  console.log(chalk.blue("Run") + chalk.green(" alf ") + chalk.blue("to initialize alfonso"))
+  console.log(chalk.blue("Run") + chalk.green(" alf init ") + chalk.blue("to initialize alfonso"))
 }
 
 
