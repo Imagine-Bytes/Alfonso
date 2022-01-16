@@ -1,25 +1,30 @@
 const files = require("../../utils/files");
+const inputParser = require("../../utils/inputParser");
 const chalk = require("chalk");
-const fs = require('fs');
 
 module.exports = {
   component: (name) => {
     const dir = "./components";
-    if (!fs.existsSync(dir)) {
-      fs.mkdirSync(dir);
+   if (!files.directoryExists(dir)) {
+      files.createFolder(dir);
     }
-    files.createFile(`./components/${name}.jsx`);
+    name = inputParser.formatName(name)
+    if (files.fileExist(`${dir}/${name}.js`)) {
+      console.log("Component already exists")
+      return ""
+    } 
     const componentData = `import React from "react";
 
-    const ${name.charAt(0).toUpperCase() + name.slice(1)} = () => {
+    const ${name} = () => {
       return (
           {/* Component Structure goes here */}
       );
     };
     
-    export default ${name.charAt(0).toUpperCase() + name.slice(1)};
+    export default ${name};
     
     `;
+
     files.writeFile(`./components/${name}.jsx`, componentData);
     console.log(chalk.blue(`your`)+ chalk.cyanBright(` ${name.charAt(0).toUpperCase() + name.slice(1)}`) + chalk.blue(" component has been created at ") + chalk.green (` ./components/${name}.jsx`))
   },

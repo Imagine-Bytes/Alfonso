@@ -15,6 +15,9 @@ module.exports = {
   createFile: (file) => {
     return touch(file);
   },
+  createFolder: (file) => {
+    return fs.mkdirSync(file);
+  },
 
   writeFile: (file, details) => {
  		fs.writeFileSync( file, details);

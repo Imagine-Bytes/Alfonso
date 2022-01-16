@@ -1,7 +1,6 @@
 const files = require("../../utils/files");
 const inputParser = require("../../utils/inputParser");
 const chalk = require("chalk");
-const fs = require('fs');
 
 let successMessage = ``
 
@@ -10,8 +9,11 @@ module.exports = {
     name = name.trim()
     let originalName = name
     name = inputParser.formatName(name)
-    const dir = "./components";
-    if (files.fileExist(`${dir}/${name}.js`)) {
+    const dir = "components";
+     if (!files.directoryExists(dir)) {
+      files.createFolder(dir);
+    }
+    if (files.fileExist(`./${dir}/${name}.js`)) {
       console.log("Component already exists")
       return ""
     } 
@@ -63,8 +65,8 @@ module.exports = {
       console.log("Page already exists")
       return ""
     } 
-    if (!fs.existsSync(dir)) {
-      fs.mkdirSync(dir);
+    if (!files.directoryExists(dir)) {
+      files.mkdirSync(dir);
     }
     files.createFile(`./${dir}/${name}.js`);
     const componentData =`
