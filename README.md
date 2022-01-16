@@ -2,9 +2,9 @@
 
 ## A CLI that helps frontend developers generate boilerplate code for component based libraries and frameworks
 
-Current Usage
-
-alf react -g component "Component"
+### Current Usage
+alf init
+alf -g component "Component"
 
 ## TODO
 
@@ -25,7 +25,8 @@ alf react -g component "Component"
 ### File Generator
 - [x] Create generate files function
 - [x] Create generate folders function
-- [x] Write check for already existing files or folders
+- [x] Write check for already existing folders
+- [] Write check for already existing files
 
 ### Boilerplates
 - [x] Create boilerplate file system
@@ -35,8 +36,8 @@ alf react -g component "Component"
 - [ ] Create Svelte Component Boilerplate
 - [ ] Create Svelte Pages Boilerplate
 - [ ] Create Vue Component Boilerplate
-- [ ] Create Next Component Boilerplate
-- [ ] Create Next Pages Boilerplate
+- [x] Create Next Component Boilerplate
+- [x] Create Next Pages Boilerplate
 - [ ] Create Next Services Boilerplate
 - [ ] Create Nuxt Component Boilerplate
 
