@@ -2,16 +2,54 @@ const inquirer = require('inquirer');
 const files = require('./files');
 const argv = require('minimist')(process.argv.slice(2));
 
-module.exports = {
+
+let a = {
+
+checkString: (name) => {
+      if (name) {
+      if (typeof name === "string") {
+      return name
+    }
+    return String(name)
+    }
+    return ""
+},
+splitString: (string) => {
+  let regex = /[A-Z\xC0-\xD6\xD8-\xDE]?[a-z\xDF-\xF6\xF8-\xFF]+|[A-Z\xC0-\xD6\xD8-\xDE]+(?![a-z\xDF-\xF6\xF8-\xFF])|\d+/g
+  return string.match(regex)
+},
+toCamelCase: (name) => {
+  let inputArray = a.splitString(name)
+     let result = "";
+
+    for(let i = 0 , len = inputArray.length; i < len; i++) {
+
+      let currentStr = inputArray[i];
+  
+      let tempStr = currentStr.toLowerCase();
+
+      // if(i != 0) {
+  
+        // convert first letter to upper case (the word is in lowercase) 
+          tempStr = tempStr.substr(0, 1).toUpperCase() + tempStr.substr(1);
+
+       // }
+      
+       result +=tempStr;
+      
+    }
+  
+    return result;
+
+},
   formatName: () => {
         // console.log( argv.stack)
     let fileName = argv._[argv._.length-1]
-    // let fileNameLength = fileName.length-1
-    if (!(fileName.substr(-3, 3) == ".js" || fileName.substr(-4, 4) == ".js/")) {
-        fileName += ".js"
-      }
+    fileName = a.checkString(fileName)
+    fileName = a.toCamelCase(fileName)
+    
       // For pascal case
-      // let [first, ...rest] = file
+      
       return fileName
   },
   getBoilerPlate: () => {
@@ -25,3 +63,5 @@ module.exports = {
   }
 
 };
+
+module.exports = a
