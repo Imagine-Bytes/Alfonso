@@ -19,24 +19,6 @@ module.exports = {
     ];
     return inquirer.prompt(questions);
   },
-  chooseTech: () => {
-    const questions = [
-      {
-        name: 'tech',
-        type: 'input',
-        message: 'Coose your name ()',
-        validate: function( value ) {
-          if (value.length) {
-            return true;
-          } else {
-            value = "Project"
-            return true;
-          }
-        }
-      }
-    ];
-    return inquirer.prompt(questions);
-  },
   selectFramework: () => {
     const questions = [
       {
