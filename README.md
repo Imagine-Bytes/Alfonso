@@ -42,5 +42,5 @@ alf -g component "Component"
 - [ ] Create Nuxt Component Boilerplate
 
 ### ADDONS
-- [ ] Create Config file that helps identify the project structure and stack and keep track of user config
-- [ ] Create a system that helps user create additional boilerplates
+- [x] Create Config file that helps identify the project structure and stack and keep track of user config
+- [ ] Create a system that helps user create custom boilerplates
