@@ -11,7 +11,7 @@ const commands = ["init", "gen", "help or -h"]
 
 if ((argv._[0] === undefined && argv.g === undefined) || (argv._[0] === "help" || argv.h !== undefined)) {
     console.log(
-    chalk.yellow(figlet.textSync("Alfonso", { horizontalLayout: "full" }))
+    chalk.yellow(figlet.textSync("Alfonse...", { horizontalLayout: "full" }))
   );
       console.log(
     chalk.white("COMMANDS:"))
@@ -26,7 +26,7 @@ if ((argv._[0] === undefined && argv.g === undefined) || (argv._[0] === "help" |
 if (argv._[0] === "init" && argv.g === undefined) {
   clear();
   console.log(
-    chalk.yellow(figlet.textSync("Alfonso", { horizontalLayout: "full" }))
+    chalk.yellow(figlet.textSync("alfonse", { horizontalLayout: "full" }))
   );
   const run = async () => {
     const framework = await selectFramework();
@@ -69,17 +69,17 @@ if (argv._[0] && fs.existsSync("alfConfig.json")) {
       console.log("Something went wrong...");
   }
 }
-// when usr tries to create component without initializing alfonso 
+// when usr tries to create component without initializing alfonse 
 if (argv._[0] && !fs.existsSync("alfConfig.json")) {
-  console.log(chalk.red("ERR") + chalk.blue(" alfonso has not been initialized"))
-  console.log(chalk.blue("Run") + chalk.green(" alf init ") + chalk.blue("to initialize alfonso"))
+  console.log(chalk.red("ERR") + chalk.blue(" alfonse has not been initialized"))
+  console.log(chalk.blue("Run") + chalk.green(" alf init ") + chalk.blue("to initialize alfonse"))
 }
 
 
 // When user uses the -g flag to create a component without initializing AFTER WRITING... I FIGURED IT MAKES NOT MUCH SENSE
 // if (argv.g && !fs.existsSync("config.json")) {
-//   console.log(chalk.red("NOTICE") + chalk.blue(" alfonso has not been initialized"))
-//   console.log(chalk.blue("Run") + chalk.green(" alf ") + chalk.blue("to initialize alfonso"))
+//   console.log(chalk.red("NOTICE") + chalk.blue(" alfonse has not been initialized"))
+//   console.log(chalk.blue("Run") + chalk.green(" alf ") + chalk.blue("to initialize alfonse"))
 //   // console.log(argv.g)
 //   const cName = argv._[0];
 //    switch (argv.g.toLowerCase()) {
