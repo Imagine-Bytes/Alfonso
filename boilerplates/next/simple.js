@@ -37,7 +37,7 @@ let successMessage = ``
     
     `;
   const stylesData = `
-    container {
+    .container {
       background: red;
     }
     

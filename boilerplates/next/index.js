@@ -26,7 +26,7 @@ module.exports = {
     const componentData = `
     import ${name}Styles from "./${name}.module.css"
     const ${name} = () => {
-      return <div styles={${name}Styles.container}>
+      return <div className={${name}Styles.container}>
             ${name} Component
             </div>
         
